@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Ccog3nt_product_Management_4._0.Models.ClusteredProducts>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<center>
+    <div>
+        <a class="btn-dark btn-sm" asp-controller="ClusterSearch" asp-action="Index">Back to List</a>
+    </div>
+    <br>
+
+    <center>
+        <div id="tost_" class="toast show" role="alert">
+            <div class="toast-header">
+                <strong class="me-auto text-black">Scores In Perspective</strong>
+                <small class="text-dark">@DateTime.Now.ToString("HH:mm")</small>
+                <button type="button" class="btn-close ms-2 mb-1" data-bs-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="toast-body text-black">
+                Scores are listed from highest to lowest, based on previous transactions.
+                Now you can pick products to sell together for greater profit.
+
+                <br>
+                <div class=" toast-body text-primary">
+                    Hint: These items are the most compatible and popular amongst customers!
+                </div>
+            </div>
+        </div>
+        <br><br>
+
+    </center>
+    <h2>Here are are the Top 5 Recommendations:</h2>
+
+
+    <table class="table table-bordered">
+        <tr class="table table-dark">
+            <th>
+                @Html.DisplayNameFor(model => model.ProductID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Score)
+            </th>
+        </tr>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => item.ProductID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.ProductName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.Score)
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+</center>
+
+<script>
+    $(document).ready(function () {
+        $('.toast').toast('show');
+    });
+</script>

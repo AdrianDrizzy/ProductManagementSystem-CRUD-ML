@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Ccog3nt_product_Management_4._0.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Select A Product</h1>
+
+
+<form asp-controller="ClusterSearch" asp-action="Index" method="get">
+    <p>
+        Product Name: <input type="text" name="searchProduct" />
+        <input class="btn-dark btn-sm" type="submit" value="Filter" />
+    </p>
+</form>
+<table class="table table-bordered">
+
+
+    <tr class="table table-dark">
+        <th>
+            @Html.DisplayNameFor(model => model.ProductId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderProductId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+
+        <th></th>
+    </tr>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderProductId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+
+                <td>
+                    @*asp-area="RetrieveID"*@
+                    <a class="btn-dark btn-sm" asp-controller="ClusterView" asp-action="Index" asp-route-id="@item.ID">Recommendations</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

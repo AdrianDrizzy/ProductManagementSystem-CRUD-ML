@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Ccog3nt_product_Management_4._0.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-black">Here are your Products:</h1>
+
+<p>
+    <a class="btn-dark btn-sm" asp-action="Create">Create New</a>
+</p>
+<table class="table table-bordered ">
+    <thead>
+        <tr class="table table-dark">
+            <th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sku)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImportDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitsPerCase)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sku)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderProductId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModifiedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImportDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitsPerCase)
+                </td>
+                <td>
+                    <a class="btn-dark btn-sm" asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a class="btn-dark btn-sm" asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a class="btn-dark btn-sm" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

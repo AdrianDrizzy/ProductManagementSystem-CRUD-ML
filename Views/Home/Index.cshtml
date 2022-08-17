@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<body>
+    <center>
+        <div id="tost_" class="toast show" role="alert">
+            <div class="toast-header">
+                <strong class="me-auto text-black">Welcome!</strong>
+                <small class="text-dark">@DateTime.Now.ToString("HH:mm")</small>
+                <button type="button" class="btn-close ms-2 mb-1" data-bs-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="toast-body text-black">
+                We're here to help you manage your store.
+                <br>
+                <div class=" toast-body text-primary">
+                    Select an option below or use the navigation bar to continue.
+                </div>
+            </div>
+        </div>
+        <br><br>
+
+    </center>
+
+    <div class="card-group">
+        <div class="card text-black bg-dark">
+            <div class="card-body">
+                <center>
+                    <h1 class="card-title">Product Management</h1>
+                    <img class="card-img" src="~/images/cluster-shelf.png" />
+                    <p class="card-text">
+                        <br>
+                        Upload your data and manage the details of your store's inventory
+                    </p>
+                    <a class="btn-warning btn-sm text-black" asp-controller="DataUpload" asp-action="Create"> Manage</a>
+                </center>
+            </div>
+        </div>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <div class="card text-black bg-dark">
+            <div class="card-body">
+                <center>
+                    <h1 class="card-title">Product Clustering</h1>
+                    <img class="card-img" src="~/images/cluster-sales.png" />
+                    <p class="card-text">
+                        <br>
+                        Upload your data to generate recommendations for sale
+                    </p>
+                    <a class="btn-warning btn-sm text-black" asp-controller="ClusterUpload" asp-action="Create"> Cluster</a>
+                </center>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+    <br><br>
+
+</body>
+
+<script>
+    $(document).ready(function () {
+        $('.toast').toast('show');
+    });
+</script>
