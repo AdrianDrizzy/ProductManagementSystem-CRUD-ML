@@ -1,2 +1,2 @@
 # ProductManagementSystem-CRUD-
-CRUD + Machine Learnign
+CRUD + Machine Learning
